@@ -1,2 +1,2 @@
 # roman-arabic-calculator
-This code is just a Proof of concept
+This code is just a proof of concept
