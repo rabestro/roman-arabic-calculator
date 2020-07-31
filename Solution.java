@@ -7,7 +7,7 @@ public final class Solution {
     private static final String ROMAN = "I?[XV]|V?II?I?";
     private static final String ARABIC = "[1-9]|10";
     private static final String OPERATION = "[-+*/]";
-    private static final Map<String, IntBinaryOperator> arithmeticOperations = Map.of(
+    private static final Map<String, IntBinaryOperator> calculator = Map.of(
             "-", (x, y) -> x - y,
             "+", (x, y) -> x + y,
             "/", (x, y) -> x / y,
@@ -20,14 +20,12 @@ public final class Solution {
         final var isRoman = a.matches(ROMAN);
         final var b = scanner.next(isRoman ? ROMAN : ARABIC);
 
-        final ToIntFunction<String> parse = isRoman ? RomanNumeral::romanToArabic : Integer::parseInt;
+        final ToIntFunction<String> toInt = isRoman ? RomanNumeral::romanToArabic : Integer::parseInt;
         final IntFunction<String> toString = isRoman ? RomanNumeral::arabicToRoman : Integer::toString;
 
-        final int result = arithmeticOperations.get(op)
-                .applyAsInt(parse.applyAsInt(a), parse.applyAsInt(b));
+        final int result = calculator.get(op).applyAsInt(toInt.applyAsInt(a), toInt.applyAsInt(b));
 
         System.out.println(toString.apply(result));
     }
 
 }
-
