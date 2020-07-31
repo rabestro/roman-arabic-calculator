@@ -12,9 +12,9 @@ enum RomanNumeral {
     XL(40), L(50), XC(90), C(100),
     CD(400), D(500), CM(900), M(1000);
 
-    private int value;
+    private final int value;
 
-    RomanNumeral(int value) {
+    RomanNumeral(final int value) {
         this.value = value;
     }
 
@@ -28,14 +28,12 @@ enum RomanNumeral {
                 .collect(toList());
     }
 
-    public static int romanToArabic(String input) {
-        final var romanNumerals = RomanNumeral.getReverseSortedValues();
+    public static int romanToArabic(final String input) {
+        final var romanNumerals = getReverseSortedValues();
         var romanNumeral = input.toUpperCase();
 
         int result = 0;
-        int i = 0;
-
-        while ((romanNumeral.length() > 0) && (i < romanNumerals.size())) {
+        for (int i = 0; (romanNumeral.length() > 0) && (i < romanNumerals.size());) {
             final var symbol = romanNumerals.get(i);
             if (romanNumeral.startsWith(symbol.name())) {
                 result += symbol.getValue();
@@ -44,11 +42,9 @@ enum RomanNumeral {
                 i++;
             }
         }
-
         if (romanNumeral.length() > 0) {
             throw new IllegalArgumentException(input + " cannot be converted to a Roman Numeral");
         }
-
         return result;
     }
 
@@ -56,7 +52,7 @@ enum RomanNumeral {
         if ((number <= 0) || (number > 4000)) {
             throw new IllegalArgumentException(number + " is not in range (0,4000]");
         }
-        final var romanNumerals = RomanNumeral.getReverseSortedValues();
+        final var romanNumerals = getReverseSortedValues();
         final var sb = new StringBuilder();
 
         for (int i = 0; (number > 0) && (i < romanNumerals.size()); ) {
