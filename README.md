@@ -16,4 +16,4 @@ This code is proof of concept.
 
 The class RomanNumeral.java used to parse and convert Roman Numerals. The code taked from [Baeldung](https://www.baeldung.com/java-convert-roman-arabic) 
 
-The main idea is to validate user input using [next​(String pattern)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html#next(java.lang.String)) method of Scanner class. It allows to throw InputMismatchException immediately after incorrect user input.
+The main idea is to validate user input using [next​(String pattern)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html#next(java.lang.String)) method of Scanner class. It allows to throw InputMismatchException immediately after incorrect user input. To fulfill the condition for the simultaneous input of either Arabic or Roman numbers, we determine the mode by the first number and use the appropriate pattern for the second number.
