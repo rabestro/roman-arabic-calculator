@@ -42,7 +42,6 @@ class SolutionTest {
     @CsvFileSource(resources = "/inputMismatch.csv")
     void inputMismatch(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
-
         assertThrows(InputMismatchException.class, () -> {
             Solution.main(null);
         });
@@ -52,7 +51,6 @@ class SolutionTest {
     @CsvFileSource(resources = "/noSuchElement.csv")
     void noSuchElement(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
-
         assertThrows(NoSuchElementException.class, () -> {
             Solution.main(null);
         });

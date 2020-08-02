@@ -1,6 +1,6 @@
 # roman-arabic-calculator
 
-This code is proof of concept.
+This code is proof of concept. It checks possibility of validation of user input by Scanner class.
 
 ## The requirements
 
@@ -16,4 +16,6 @@ This code is proof of concept.
 
 The main idea is to validate user input using [next​(String pattern)](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Scanner.html#next(java.lang.String)) method of Scanner class. It allows to throw [InputMismatchException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/InputMismatchException.html) immediately after incorrect user input. To fulfill the condition for the simultaneous input of either Arabic or Roman numbers, we determine the mode by the first number and use the appropriate pattern for the second number.
 
-The code for class RomanNumeral taked from [Baeldung](https://www.baeldung.com/java-convert-roman-arabic) 
+## Tests
+
+Project contains tests for more than 60 cases.
