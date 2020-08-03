@@ -8,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class RomanNumeralTest {
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/romanToArabic.csv", numLinesToSkip = 1, delimiter = '=')
+    @CsvFileSource(resources = "/romanToArabic.csv", delimiter = '=')
     void romanToArabic(String input, int expected) {
         assertEquals(expected, RomanNumeral.romanToArabic(input));
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/arabicToRoman.csv", numLinesToSkip = 1, delimiter = '=')
+    @CsvFileSource(resources = "/arabicToRoman.csv", delimiter = '=')
     void arabicToRoman(int input, String expected) {
         assertEquals(expected, RomanNumeral.arabicToRoman(input));
     }
