@@ -1,5 +1,3 @@
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
-
 # roman-arabic-calculator
 
 This code is proof of concept. It checks possibility of validation of user input by Scanner class.
