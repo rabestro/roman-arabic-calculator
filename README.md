@@ -21,3 +21,4 @@ The main idea is to validate user input using [next​(String pattern)](https://
 Project has 100% test coverage, and it contains tests for more than 100 cases.
 
 ![Test Summary](TestSummary.png)
+
