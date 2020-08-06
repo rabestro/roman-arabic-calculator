@@ -23,12 +23,23 @@ public final class Solution {
         final var isRoman = a.matches(ROMAN);
         final var b = scanner.next(isRoman ? ROMAN : ARABIC);
 
-        final ToIntFunction<String> toInt = isRoman ? RomanNumeral::romanToArabic : Integer::parseInt;
-        final IntFunction<String> toString = isRoman ? RomanNumeral::arabicToRoman : Integer::toString;
+        final ToIntFunction<String> toInt = isRoman ? Solution::romanToArabic : Integer::parseInt;
+        final IntFunction<String> toString = isRoman ? Solution::arabicToRoman : Integer::toString;
 
         final int result = calculator.get(op).applyAsInt(toInt.applyAsInt(a), toInt.applyAsInt(b));
 
         System.out.println(toString.apply(result));
     }
-}
 
+    static int romanToArabic(final String number) {
+        return 1 + List.of("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X").indexOf(number);
+    }
+
+    static String arabicToRoman(final int number) {
+        return String.join("",
+                number / 100 == 1 ? "C" : "",
+                new String[]{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"}[number % 100 / 10],
+                new String[]{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"}[number % 10]
+        );
+    }
+}

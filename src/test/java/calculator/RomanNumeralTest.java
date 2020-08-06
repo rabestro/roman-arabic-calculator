@@ -10,12 +10,12 @@ class RomanNumeralTest {
     @ParameterizedTest
     @CsvFileSource(resources = "/romanToArabic.csv", delimiter = '=')
     void romanToArabic(String input, int expected) {
-        assertEquals(expected, RomanNumeral.romanToArabic(input));
+        assertEquals(expected, Solution.romanToArabic(input));
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/arabicToRoman.csv", delimiter = '=')
     void arabicToRoman(int input, String expected) {
-        assertEquals(expected, RomanNumeral.arabicToRoman(input));
+        assertEquals(expected, Solution.arabicToRoman(input));
     }
 }
