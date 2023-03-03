@@ -1,6 +1,8 @@
 package calculator;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntFunction;
 import java.util.function.ToIntFunction;
@@ -17,16 +19,16 @@ public final class Solution {
             "*", (x, y) -> x * y);
 
     public static void main(String[] args) {
-        final var scanner = new Scanner(System.in);
-        final var a = scanner.next(ROMAN + OR + ARABIC);
-        final var op = scanner.next(OPERATION);
-        final var isRoman = a.matches(ROMAN);
-        final var b = scanner.next(isRoman ? ROMAN : ARABIC);
+        var scanner = new Scanner(System.in);
+        var a = scanner.next(ROMAN + OR + ARABIC);
+        var op = scanner.next(OPERATION);
+        var isRoman = a.matches(ROMAN);
+        var b = scanner.next(isRoman ? ROMAN : ARABIC);
 
-        final ToIntFunction<String> toInt = isRoman ? Solution::romanToArabic : Integer::parseInt;
-        final IntFunction<String> toString = isRoman ? Solution::arabicToRoman : Integer::toString;
+        ToIntFunction<String> toInt = isRoman ? Solution::romanToArabic : Integer::parseInt;
+        IntFunction<String> toString = isRoman ? Solution::arabicToRoman : Integer::toString;
 
-        final int result = calculator.get(op).applyAsInt(toInt.applyAsInt(a), toInt.applyAsInt(b));
+        int result = calculator.get(op).applyAsInt(toInt.applyAsInt(a), toInt.applyAsInt(b));
 
         System.out.println(toString.apply(result));
     }

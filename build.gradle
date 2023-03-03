@@ -1,7 +1,10 @@
 apply plugin: 'java'
 
-group 'org.rabestro'
+group 'com.github.rabestro'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
@@ -14,5 +17,5 @@ test {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
-    testCompile "org.junit.jupiter:junit-jupiter-params:5.6.2"
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.6.2'
 }
